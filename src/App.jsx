@@ -1,41 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Square from "./square";
-
-function Board({ xIsNext, squares, onPlay }) {
-  function handleClick(i) {
-    if (squares[i] || calculateWinner(squares)) return;
-    const nextSquares = squares.slice();
-    xIsNext ? (nextSquares[i] = "❌") : (nextSquares[i] = "⭕️");
-    onPlay(nextSquares);
-  }
-
-  const boardRow = [];
-  for (let row = 0; row < 3; row++) {
-    const squaresInRow = [];
-    for (let col = 0; col < 3; col++) {
-      const index = row * 3 + col;
-      squaresInRow.push(
-        <Square
-          key={index}
-          value={squares[index]}
-          onSquareClick={() => handleClick(index)}
-        />
-      );
-    }
-    boardRow.push(
-      <div key={row} className="board-row">
-        {squaresInRow}
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <div className="board">{boardRow}</div>
-    </>
-  );
-}
+import Board from "./board";
 
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
