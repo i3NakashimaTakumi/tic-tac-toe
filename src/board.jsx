@@ -1,4 +1,11 @@
 import Square from "./square";
+import PropTypes from "prop-types";
+
+Board.propTypes = {
+  xIsNext: PropTypes.int.isRequired,
+  squares: PropTypes.array.isRequired,
+  onPlay: PropTypes.func.isRequired,
+};
 
 export default function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
@@ -19,12 +26,14 @@ export default function Board({ xIsNext, squares, onPlay }) {
       const isWinningSquare = winningLine && winningLine.includes(squareIndex);
       squaresInRow.push(
         <Square
+          key={squareIndex}
           value={squares[squareIndex]}
           onSquareClick={() => handleClick(squareIndex)}
           isWinningSquare={isWinningSquare}
         />
       );
     }
+
     boardRow.push(
       <div key={row} className="board-row">
         {squaresInRow}
