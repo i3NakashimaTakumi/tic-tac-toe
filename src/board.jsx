@@ -1,8 +1,12 @@
 import Square from "./square";
 
 export default function Board({ xIsNext, squares, onPlay }) {
+  const winner = calculateWinner(squares);
+  console.log(winner);
+  const winningLine = winner ? winner.winnersLine : null;
+
   function handleClick(i) {
-    if (squares[i] || calculateWinner(squares)) return;
+    if (squares[i] || winner) return;
     const nextSquares = squares.slice();
     xIsNext ? (nextSquares[i] = "❌") : (nextSquares[i] = "⭕️");
     onPlay(nextSquares);
@@ -12,12 +16,14 @@ export default function Board({ xIsNext, squares, onPlay }) {
   for (let row = 0; row < 3; row++) {
     const squaresInRow = [];
     for (let col = 0; col < 3; col++) {
-      const index = row * 3 + col;
+      const squareIndex = row * 3 + col;
+      const isWinningSquare = winningLine && winningLine.includes(squareIndex);
       squaresInRow.push(
         <Square
-          key={index}
-          value={squares[index]}
-          onSquareClick={() => handleClick(index)}
+          key={squareIndex}
+          value={squares[squareIndex]}
+          onSquareClick={() => handleClick(squareIndex)}
+          isWinningSquare={isWinningSquare}
         />
       );
     }

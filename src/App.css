@@ -23,6 +23,10 @@ body {
   background-color: #c0d5e8;
 }
 
+.square.winning {
+  background-color: yellow;
+}
+
 .board {
   aspect-ratio: 1 / 1;
   border-collapse: collapse;
