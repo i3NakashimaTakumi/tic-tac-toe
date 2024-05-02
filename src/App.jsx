@@ -24,6 +24,8 @@ export default function Game() {
 
     if (winner) {
       setStatus("Winner: " + winner);
+    } else if (currentMove === 9) {
+      setStatus("Draw");
     } else {
       setStatus("Next player: " + (xIsNext ? "❌" : "⭕️"));
     }
