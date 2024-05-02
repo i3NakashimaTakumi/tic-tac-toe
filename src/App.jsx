@@ -11,7 +11,6 @@ export default function Game() {
   const [status, setStatus] = useState("Next player: ❌");
 
   function handlePlay(nextSquares) {
-    // console.log(history);
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);

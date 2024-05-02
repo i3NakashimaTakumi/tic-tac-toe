@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
 Square.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onSquareClick: PropTypes.func.isRequired,
-  isWinningSquare: PropTypes.bool.isRequired,
+  isWinningSquare: PropTypes.bool,
 };
 
 export default function Square({ value, onSquareClick, isWinningSquare }) {

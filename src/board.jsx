@@ -2,7 +2,7 @@ import Square from "./square";
 import PropTypes from "prop-types";
 
 Board.propTypes = {
-  xIsNext: PropTypes.int.isRequired,
+  xIsNext: PropTypes.bool.isRequired,
   squares: PropTypes.array.isRequired,
   onPlay: PropTypes.func.isRequired,
 };
