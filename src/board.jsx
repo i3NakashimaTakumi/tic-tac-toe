@@ -19,7 +19,6 @@ export default function Board({ xIsNext, squares, onPlay }) {
       const isWinningSquare = winningLine && winningLine.includes(squareIndex);
       squaresInRow.push(
         <Square
-          key={squareIndex}
           value={squares[squareIndex]}
           onSquareClick={() => handleClick(squareIndex)}
           isWinningSquare={isWinningSquare}
