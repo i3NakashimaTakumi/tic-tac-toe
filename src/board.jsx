@@ -2,7 +2,6 @@ import Square from "./square";
 
 export default function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
-  console.log(winner);
   const winningLine = winner ? winner.winnersLine : null;
 
   function handleClick(i) {
